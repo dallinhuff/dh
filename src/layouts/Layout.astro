@@ -1,22 +1,36 @@
+---
+const { title = "Dallin Huff", description = "" } = Astro.props;
+const canonicalUrl = new URL(Astro.url.pathname, import.meta.env.SITE).href;
+---
+
 <!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <meta name="application-name" content="Dallin Huff" />
+    <title>{title}</title>
+    <meta name="author" content="Dallin Huff" />
+    <meta name="description" content={description} />
+
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="stylesheet" href="/terminal.css" />
     <meta name="generator" content={Astro.generator} />
-    <title>Astro Basics</title>
+
+    <meta property="og:locale" content="en" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalUrl} />
   </head>
+
   <body>
-    <slot />
+    <header>
+    </header>
+    <main>
+      <slot />
+    </main>
+    <footer></footer>
   </body>
 </html>
-
-<style>
-  html,
-  body {
-    margin: 0;
-    width: 100%;
-    height: 100%;
-  }
-</style>
