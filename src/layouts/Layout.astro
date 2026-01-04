@@ -1,5 +1,6 @@
 ---
 import PageHeader from "../components/PageHeader.astro";
+import PageFooter from "../components/PageFooter.astro";
 
 const { title = "Dallin Huff", description = "" } = Astro.props;
 const canonicalUrl = new URL(Astro.url.pathname, import.meta.env.SITE).href;
@@ -32,7 +33,7 @@ const canonicalUrl = new URL(Astro.url.pathname, import.meta.env.SITE).href;
     <main>
       <slot />
     </main>
-    <footer></footer>
+    <PageFooter />
   </body>
 </html>
 
