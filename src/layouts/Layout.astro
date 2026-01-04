@@ -1,4 +1,6 @@
 ---
+import PageHeader from "../components/PageHeader.astro";
+
 const { title = "Dallin Huff", description = "" } = Astro.props;
 const canonicalUrl = new URL(Astro.url.pathname, import.meta.env.SITE).href;
 ---
@@ -26,8 +28,7 @@ const canonicalUrl = new URL(Astro.url.pathname, import.meta.env.SITE).href;
   </head>
 
   <body>
-    <header>
-    </header>
+    <PageHeader />
     <main>
       <slot />
     </main>
