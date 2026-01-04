@@ -35,3 +35,24 @@ const canonicalUrl = new URL(Astro.url.pathname, import.meta.env.SITE).href;
     <footer></footer>
   </body>
 </html>
+
+<style>
+  body {
+    margin: 0 auto;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 100ch;
+    min-height: 100vh;
+
+    & > * {
+      flex-grow: 0;
+      flex-shrink: 0;
+    }
+
+    & > main {
+      flex-grow: 1;
+    }
+  }
+</style>
