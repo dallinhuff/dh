@@ -1,12 +1,15 @@
 // @ts-check
 import { defineConfig } from "astro/config";
+import expressiveCode from "astro-expressive-code";
 
 // https://astro.build/config
 export default defineConfig({
   site: "https://www.dallinhuff.com",
-  markdown: {
-    shikiConfig: {
-      theme: "kanagawa-wave",
-    },
-  },
+
+  integrations: [
+    expressiveCode({
+      themes: ["kanagawa-wave"],
+    }),
+  ],
 });
+

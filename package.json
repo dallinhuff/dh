@@ -9,7 +9,8 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^5.16.6"
+    "astro": "^5.16.6",
+    "astro-expressive-code": "^0.41.5"
   },
   "devDependencies": {
     "prettier": "3.7.4",
