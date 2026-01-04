@@ -1,8 +1,86 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import pubKey from "../../public/pgp.asc?raw";
 
-const title = "Contact";
+const title = "Reach Me";
 const description = "How to reach me or keep in touch";
+
+const links = {
+  openPgp:
+    "https://keys.openpgp.org/vks/v1/by-fingerprint/ACE0BD18141B412230D5E092A3FC997AF7DEB253",
+  github: "https://github.com/dallinhuff",
+  linkedIn: "https://linkedin.com/in/dallinhuff",
+  instagram: "https://www.instagram.com/dallin.huff",
+};
+
+const fingerprint = "ACE0 BD18 141B 4122 30D5  E092 A3FC 997A F7DE B253";
 ---
 
-<Layout {title} {description} />
+<Layout {title} {description}>
+  <header>
+    <h1>{title}</h1>
+
+    <address>
+      If you are human (not a bot) and want to get in touch directly, emailing
+      me at <a href="mailto:me@dallinhuff.com">me@dallinhuff.com</a>
+      is a good way to do so.
+    </address>
+  </header>
+
+  <section>
+    <h2>Socials</h2>
+
+    <ul>
+      <li>Github: <a href={links.github}>@dallinhuff</a> — code & projects</li>
+      <li>
+        LinkedIn: <a href={links.linkedIn}>@dallinhuff</a> — professional updates
+      </li>
+      <li>
+        Instagram: <a href={links.instagram}>@dallin.huff</a> (mind the dot) — personal
+        / visual
+      </li>
+      <li>
+        RSS: <a href="/rss.xml">Feed</a> — Long-form content (from this site)
+      </li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Secure Communication (PGP)</h2>
+
+    <p>
+      If you want to send me an encrypted message or verify that a message came
+      from me, you can use my PGP public key.
+    </p>
+    <p>Fingerprint: <code class="fingerprint">{fingerprint}</code></p>
+    <p>
+      Download: <a href="/pgp.asc" download>pgp.asc</a>
+      (also available on <a href={links.openPgp}>keys.openpgp.org</a> or via WKD on
+      this domain)
+    </p>
+    <details>
+      <summary>View public key (plaintext)</summary>
+      <pre><code>{pubKey}</code></pre>
+    </details>
+  </section>
+</Layout>
+
+<style>
+  section {
+    margin-top: 2.5rem;
+  }
+
+  ul {
+    margin-left: 0;
+    list-style-type: none;
+  }
+
+  code.fingerprint {
+    white-space: pre-wrap;
+  }
+
+  summary {
+    cursor: pointer;
+    margin-bottom: 1rem;
+  }
+</style>
