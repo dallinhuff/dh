@@ -6,10 +6,13 @@ import expressiveCode from "astro-expressive-code";
 export default defineConfig({
   site: "https://www.dallinhuff.com",
 
+  redirects: {
+    "/home": "/",
+  },
+
   integrations: [
     expressiveCode({
       themes: ["kanagawa-wave"],
     }),
   ],
 });
-
