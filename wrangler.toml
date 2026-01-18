@@ -1,0 +1,5 @@
+name = "dh"
+compatibility_date = "2026-01-17"
+
+[assets]
+directory = "./dist"
