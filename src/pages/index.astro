@@ -1,7 +1,30 @@
 ---
 import Layout from "../layouts/Layout.astro";
+
+const obviouslyWorkLink =
+  "https://cs.stanford.edu/people/eroberts/courses/soco/projects/2008-09/tony-hoare/index.html";
 ---
 
 <Layout>
-  <h1>Hello</h1>
+  <h1>Hello, I'm Dallin.</h1>
+
+  <p>
+    I’m a software engineer in Utah who likes thinking about how long-lived
+    software is built and maintained. I focus primarily in areas like
+    cryptography, version control, and the tools developers rely on every day.
+  </p>
+
+  <p>
+    I’ve worked across fintech, startups, and academia, mostly on problems where
+    correctness and trust matter more than novelty. Lately, I’ve been especially
+    interested in Rust and building systems that
+    <a href={obviouslyWorkLink}>"obviously [work]"</a>.
+  </p>
+
+  <p>
+    If you're curious, you can
+    <a href="/work">explore my work</a>, read
+    <a href="/notes">what I'm writing</a>, or
+    <a href="/contact">get in touch</a>.
+  </p>
 </Layout>
