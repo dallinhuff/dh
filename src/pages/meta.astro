@@ -2,7 +2,33 @@
 import Layout from "../layouts/Layout.astro";
 
 const title = "Meta";
-const description = "What this page is and why I made it.";
+const description = "What this site is and why/how I made it.";
 ---
 
-<Layout {title} {description} />
+<Layout {title} {description}>
+  <header>
+    <h1>{title}</h1>
+  </header>
+
+  <section>
+    <h2>Credits</h2>
+
+    <ul>
+      <li>
+        <a href="https://rkoziel.com" target="_blank">Radek Kozieł</a>
+        — for his terrific <code>terminal.css</code> stylesheet
+      </li>
+      <li>
+        <a href="https://aaadaaam.com" target="_blank">Adam Stoddard</a>
+        — for inspiration from his clean site layout and navigation structure
+      </li>
+    </ul>
+  </section>
+</Layout>
+
+<style>
+  ul {
+    margin-left: 0;
+    list-style-type: none;
+  }
+</style>
