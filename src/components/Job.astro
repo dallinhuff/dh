@@ -1,0 +1,74 @@
+---
+import type { ImageMetadata } from "astro";
+import { Image } from "astro:assets";
+
+interface Props {
+  company: string;
+  logo: ImageMetadata;
+  role: string;
+  date: { start: string; end?: string } | string;
+}
+
+const { company, logo, role, date } = Astro.props;
+---
+
+<section>
+  <header>
+    <Image src={logo} alt={company} />
+    <div>
+      <h3>{company}</h3>
+      <p>{role}</p>
+      {
+        typeof date === "string" ? (
+          <p>{date}</p>
+        ) : (
+          <p>
+            {date.start} &ndash; {date.end || "Present"}
+          </p>
+        )
+      }
+    </div>
+  </header>
+
+  <div></div>
+  <div>
+    <slot />
+  </div>
+</section>
+
+<style>
+  section {
+    display: grid;
+    grid-template-columns: 100px auto;
+    gap: 0 2ch;
+
+    & > header {
+      display: contents;
+
+      & img {
+        border-width: 0;
+        border-radius: 50%;
+        padding: 0;
+        width: 90px;
+        height: 90px;
+      }
+
+      & > div {
+        padding-top: 8px;
+
+        & > h3 {
+          color: var(--accent);
+          margin-bottom: 0.25rem;
+        }
+
+        & > p {
+          margin: 0;
+        }
+      }
+    }
+
+    & > div {
+      margin-top: -25px;
+    }
+  }
+</style>
