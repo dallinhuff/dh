@@ -41,160 +41,154 @@ const description = "A high-level overview of my work: both where and what on.";
       on work that’s worth going into more depth than I typically share
       elsewhere.
     </p>
-
-    <article id="professional">
-      <h2>Professional</h2>
-
-      <Job
-        company="Fidelity Investments"
-        role="Associate Software Engineer"
-        date={{ start: "Jun 2025" }}
-        logo={fidelityLogo}
-      >
-        <p>
-          I currently work as a software engineer for Fidelity Brokerage's
-          Digital Security cohort, which is primarily responsible for the many
-          authentication flows Fidelity supports for retail, workplace, and
-          institutional customers.
-        </p>
-
-        <p>
-          The apps and services I work most closely with are responsible for
-          managing signing and encryption keys used throughout much of our
-          enterprise infrastructure. That's about all I can say on the matter.
-        </p>
-      </Job>
-
-      <Job
-        company="Opiniion, Inc."
-        role="Integrations Engineer"
-        date={{ start: "Aug 2024", end: "Jun 2025" }}
-        logo={opiniionLogo}
-      >
-        <p>
-          Opiniion is a platform for property management companies to collect
-          feedback from residents to gain insights into their residents'
-          satisfaction.
-        </p>
-
-        <p>
-          While at Opiniion, I built and maintained integrations we had with 14+
-          third-party services like Yardi and Entrata to synchronize resident
-          data between these systems. I also built an internal tool for auditing
-          our customers' integrations to ensure the data we were ingesting was
-          correct and up to date.
-        </p>
-
-        <p>
-          One of my greatest accomplishments at Opiniion was using a best-fit
-          bin-packing algorithm to parallelize some of our batch jobs across
-          multiple processes. My changes increased processing throughput by more
-          than 400%, cutting jobs that took over a day to complete down to a few
-          hours.
-        </p>
-
-        <p>
-          I also oversaw a large-scale refactor of several services to cut SLOC
-          by more than 80% for some of our integrations.
-        </p>
-      </Job>
-
-      <Job
-        company="Fidelity Investments"
-        role="Software Engineer Intern"
-        date={{ start: "Jun 2024", end: "Aug 2024" }}
-        logo={fidelityLogo}
-      >
-        <p>
-          I interned at Fidelity in the summer of 2024 as a software engineer
-          for the Cloud and Platform Enablement team.
-        </p>
-        <p>
-          My team's main product was a platform for GitOps-managed Kubernetes
-          deployments. Customers could deploy their containerized apps on EKS
-          with autoscaling, blue/green deployments, etc. without needing to
-          manage their own k8s manifests or Helm charts.
-        </p>
-        <p>
-          While working for CAPE, I built and deployed an application using Go
-          and Vue.js for triaging and voting on feature requests.
-        </p>
-      </Job>
-
-      <Job
-        company="BYU Learning Suite"
-        role="Web Developer"
-        date={{ start: "May 2022", end: "May 2024" }}
-        logo={learningSuiteLogo}
-      >
-        <p>
-          Learning Suite is a proprietary learning management system (LMS) built
-          by faculty and students at Brigham Young University.
-        </p>
-        <p>
-          While at Learning Suite, I primarily worked on migrating portions of
-          the instructor application from jQuery/Handlebars.js to Vue.js. I
-          built a scoring page where course instructors could view and edit
-          students' scores, grades, and statistics as tabular data (think
-          bespoke Google Sheets for professors). Working on the scoring page
-          taught me a lot about complex state management patterns and
-          performance benchmarking in the browser.
-        </p>
-        <p>
-          My time at Learning Suite holds a special place in my heart because
-          it's also where I met my wonderful wife, Megan.
-        </p>
-      </Job>
-
-      <article id="education">
-        <h2>Education & Certifications</h2>
-
-        <Job
-          company="Brigham Young University"
-          role="B.S. Computer Science"
-          date={{ start: "Sep 2020", end: "Dec 2024" }}
-          logo={byuLogo}
-        >
-          <p><em>Cum Laude</em> &ndash; 3.96 GPA</p>
-        </Job>
-
-        <Job
-          company="Amazon Web Services"
-          role="CloudQuest Cloud Practitioner"
-          date="Sep 2025"
-          logo={awsLogo}
-        />
-
-        <Job
-          company="Rock the JVM"
-          role="Advanced Scala 3 & Functional Programming"
-          date="Sep 2023"
-          logo={rockTheJvmLogo}
-        />
-      </article>
-
-      <article id="projects">
-        <h2>Projects & OSS Contributions</h2>
-
-        <Job
-          company="Jujutsu (jj)"
-          role="Contributor"
-          date={{ start: "Jan 2026" }}
-          logo={jjLogo}
-        />
-        <Job
-          company="Zed (editor)"
-          role="Contributor"
-          date={{ start: "March 2025" }}
-          logo={zedLogo}
-        />
-      </article>
-    </article>
   </header>
 
-  <style>
-    article {
-      margin-top: 3rem;
-    }
-  </style>
+  <article id="professional">
+    <h2>Professional</h2>
+
+    <Job
+      company="Fidelity Investments"
+      role="Associate Software Engineer"
+      date={{ start: "Jun 2025" }}
+      logo={fidelityLogo}
+    >
+      <p>
+        I currently work as a software engineer for Fidelity Brokerage's Digital
+        Security cohort, which is primarily responsible for the many
+        authentication flows Fidelity supports for retail, workplace, and
+        institutional customers.
+      </p>
+
+      <p>
+        The apps and services I work most closely with are responsible for
+        managing signing and encryption keys used throughout much of our
+        enterprise infrastructure. That's about all I can say on the matter.
+      </p>
+    </Job>
+
+    <Job
+      company="Opiniion, Inc."
+      role="Integrations Engineer"
+      date={{ start: "Aug 2024", end: "Jun 2025" }}
+      logo={opiniionLogo}
+    >
+      <p>
+        Opiniion is a platform for property management companies to collect
+        feedback from residents to gain insights into their residents'
+        satisfaction.
+      </p>
+
+      <p>
+        While at Opiniion, I built and maintained integrations we had with 14+
+        third-party services like Yardi and Entrata to synchronize resident data
+        between these systems. I also built an internal tool for auditing our
+        customers' integrations to ensure the data we were ingesting was correct
+        and up to date.
+      </p>
+
+      <p>
+        One of my greatest accomplishments at Opiniion was using a best-fit
+        bin-packing algorithm to parallelize some of our batch jobs across
+        multiple processes. My changes increased processing throughput by more
+        than 400%, cutting jobs that took over a day to complete down to a few
+        hours.
+      </p>
+
+      <p>
+        I also oversaw a large-scale refactor of several services to cut SLOC by
+        more than 80% for some of our integrations.
+      </p>
+    </Job>
+
+    <Job
+      company="Fidelity Investments"
+      role="Software Engineer Intern"
+      date={{ start: "Jun 2024", end: "Aug 2024" }}
+      logo={fidelityLogo}
+    >
+      <p>
+        I interned at Fidelity in the summer of 2024 as a software engineer for
+        the Cloud and Platform Enablement team.
+      </p>
+      <p>
+        My team's main product was a platform for GitOps-managed Kubernetes
+        deployments. Customers could deploy their containerized apps on EKS with
+        autoscaling, blue/green deployments, etc. without needing to manage
+        their own k8s manifests or Helm charts.
+      </p>
+      <p>
+        While working for CAPE, I built and deployed an application using Go and
+        Vue.js for triaging and voting on feature requests.
+      </p>
+    </Job>
+
+    <Job
+      company="BYU Learning Suite"
+      role="Web Developer"
+      date={{ start: "May 2022", end: "May 2024" }}
+      logo={learningSuiteLogo}
+    >
+      <p>
+        Learning Suite is a proprietary learning management system (LMS) built
+        by faculty and students at Brigham Young University.
+      </p>
+      <p>
+        While at Learning Suite, I primarily worked on migrating portions of the
+        instructor application from jQuery/Handlebars.js to Vue.js. I built a
+        scoring page where course instructors could view and edit students'
+        scores, grades, and statistics as tabular data (think bespoke Google
+        Sheets for professors). Working on the scoring page taught me a lot
+        about complex state management patterns and performance benchmarking in
+        the browser.
+      </p>
+      <p>
+        My time at Learning Suite holds a special place in my heart because it's
+        also where I met my wonderful wife, Megan.
+      </p>
+    </Job>
+
+    <article id="education">
+      <h2>Education & Certifications</h2>
+
+      <Job
+        company="Brigham Young University"
+        role="B.S. Computer Science"
+        date={{ start: "Sep 2020", end: "Dec 2024" }}
+        logo={byuLogo}
+      >
+        <p><em>Cum Laude</em> &ndash; 3.96 GPA</p>
+      </Job>
+
+      <Job
+        company="Amazon Web Services"
+        role="CloudQuest Cloud Practitioner"
+        date="Sep 2025"
+        logo={awsLogo}
+      />
+
+      <Job
+        company="Rock the JVM"
+        role="Advanced Scala 3 & Functional Programming"
+        date="Sep 2023"
+        logo={rockTheJvmLogo}
+      />
+    </article>
+
+    <article id="projects">
+      <h2>Projects & OSS Contributions</h2>
+
+      <Job
+        company="Jujutsu (jj)"
+        role="Contributor"
+        date={{ start: "Jan 2026" }}
+        logo={jjLogo}
+      />
+      <Job
+        company="Zed (editor)"
+        role="Contributor"
+        date={{ start: "March 2025" }}
+        logo={zedLogo}
+      />
+    </article>
+  </article>
 </Layout>

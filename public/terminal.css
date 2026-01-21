@@ -397,3 +397,10 @@ th,
 button {
   font-weight: 600;
 }
+
+/* My overrides */
+
+main>article,
+main>section {
+  margin-top: 3.5rem;
+}
