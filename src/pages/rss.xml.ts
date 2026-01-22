@@ -3,7 +3,10 @@ import type { APIContext } from "astro";
 import { getCollection } from "astro:content";
 
 export async function GET(context: APIContext) {
-  const notes = await getCollection("notes");
+  const notes = (await getCollection("notes")).sort(
+    (a, b) =>
+      (b.data.pubDate?.valueOf() ?? 0) - (a.data.pubDate?.valueOf() ?? 0),
+  );
 
   return rss({
     title: "Dallin Huff (Notes)",
