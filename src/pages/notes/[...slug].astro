@@ -3,18 +3,30 @@ import { getCollection, render } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
 
 export async function getStaticPaths() {
-  const posts = await getCollection("notes");
-
-  return posts.map((post) => ({
-    params: { slug: post.id },
-    props: { post },
-  }));
+  return (await getCollection("notes"))
+    .filter((note) => !note.data.draft)
+    .map((note) => ({ params: { slug: note.id }, props: { post: note } }));
 }
 
 const { post } = Astro.props;
+const pubDate = post.data.pubDate.toISOString().split("T")[0];
 const { Content } = await render(post);
 ---
 
 <Layout title={post.data.title} description={post.data.description}>
-  <Content />
+  <article>
+    <header>
+      <h1>{post.data.title}</h1>
+      <time datetime={pubDate}>Published: {pubDate}</time>
+    </header>
+
+    <Content />
+  </article>
 </Layout>
+
+<style>
+  header {
+    padding-bottom: 1rem;
+    border-bottom: 2px solid var(--accent);
+  }
+</style>

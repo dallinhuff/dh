@@ -8,13 +8,15 @@ const description =
   "and the craft of building software that holds up over time. " +
   "Mostly things I’m actively working through or trying to understand better.";
 
-const notes = (await getCollection("notes")).sort(
-  (a, b) =>
-    (b.data.pubDate?.valueOf() ?? 0) - (a.data.pubDate?.valueOf() ?? 0) ||
-    (a.data.title ?? "").localeCompare(b.data.title ?? "", "en", {
-      sensitivity: "base",
-    }),
-);
+const notes = (await getCollection("notes"))
+  .filter((note) => !note.data.draft)
+  .sort(
+    (a, b) =>
+      b.data.pubDate.valueOf() - a.data.pubDate.valueOf() ||
+      a.data.title.localeCompare(b.data.title, "en", {
+        sensitivity: "base",
+      }),
+  );
 ---
 
 <Layout {title} {description}>
@@ -36,8 +38,8 @@ const notes = (await getCollection("notes")).sort(
         <a href={`/notes/${note.id}`}>
           <header>
             <h2>{note.data.title}</h2>
-            <time datetime={note.data.pubDate?.toISOString().split("T")[0]}>
-              {note.data.pubDate?.toISOString().split("T")[0]}
+            <time datetime={note.data.pubDate.toISOString().split("T")[0]}>
+              {note.data.pubDate.toISOString().split("T")[0]}
             </time>
           </header>
 
