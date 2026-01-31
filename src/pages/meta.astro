@@ -3,6 +3,8 @@ import Layout from "../layouts/Layout.astro";
 
 const title = "Meta";
 const description = "What this site is and why/how I made it.";
+
+const sourceCodeLink = "https://github.com/dallinhuff/dh";
 ---
 
 <Layout {title} {description}>
@@ -37,6 +39,21 @@ const description = "What this site is and why/how I made it.";
         — for inspiration from his clean site layout and navigation structure
       </li>
     </ul>
+  </section>
+
+  <section>
+    <h2>License</h2>
+
+    <p>
+      The source code for this site is available at
+      <a href={sourceCodeLink}>{sourceCodeLink}</a>
+      and is licensed under the MIT License.
+    </p>
+
+    <p>
+      All website content — including text, images, graphics, and blog posts —
+      unless stated otherwise, is © 2026 Dallin Huff. All rights reserved.
+    </p>
   </section>
 </Layout>
 
