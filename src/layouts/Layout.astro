@@ -17,6 +17,7 @@ const canonicalUrl = new URL(Astro.url.pathname, import.meta.env.SITE).href;
     <meta name="author" content="Dallin Huff" />
     <meta name="description" content={description} />
 
+    <link rel="sitemap" href="/sitemap-index.xml" />
     <link rel="alternate" type="application/rss+xml" href="/rss.xml" />
     <link rel="icon" type="image/png" href="/favicon.png" />
     <link rel="stylesheet" href="/terminal.css" />
