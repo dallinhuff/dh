@@ -4,7 +4,9 @@ import Layout from "../../layouts/Layout.astro";
 
 const title = "Notes";
 const description =
-  "Notes, posts, and musings on software, design, security, et alia.";
+  "Essays and technical notes on software engineering, security, systems design, " +
+  "and the craft of building software that holds up over time. " +
+  "Mostly things I’m actively working through or trying to understand better.";
 
 const notes = (await getCollection("notes")).sort(
   (a, b) =>

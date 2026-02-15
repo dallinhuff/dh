@@ -1,8 +1,13 @@
 ---
 import Layout from "../layouts/Layout.astro";
+
+const title = "Dallin Huff";
+const description =
+  "I’m a Utah-based software engineer working on cryptography, version control, and long-lived systems. " +
+  "I care a lot about correctness, clarity, and building software we can still trust in ten years.";
 ---
 
-<Layout>
+<Layout {title} {description}>
   <h1>Hello, I'm Dallin.</h1>
 
   <p>
