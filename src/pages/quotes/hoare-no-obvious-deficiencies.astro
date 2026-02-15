@@ -1,0 +1,26 @@
+---
+import Layout from "../../layouts/Layout.astro";
+
+const title = "Tony Hoare: No obvious deficiencies";
+const description =
+  "A favorite quote from Tony Hoare on simplicity in software design " +
+  "and the difference between obvious correctness and hidden complexity.";
+
+const citation =
+  "https://cs.stanford.edu/people/eroberts/courses/soco/projects/2008-09/tony-hoare/index.html";
+---
+
+<Layout {title} {description}>
+  <blockquote cite={citation}>
+    <p>
+      There are two ways of constructing a software design: One way is to make
+      it so simple that there are
+      <em>obviously no deficiencies</em>, and the other way is to make it so
+      complicated that there are
+      <em>no obvious deficiencies</em>.
+    </p>
+    <footer>
+      - <cite>Tony Hoare, <a href={citation}>On Design</a></cite>
+    </footer>
+  </blockquote>
+</Layout>
