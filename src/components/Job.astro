@@ -1,29 +1,31 @@
 ---
-import type { ImageMetadata } from "astro";
 import { Image } from "astro:assets";
+import type { CollectionEntry } from "astro:content";
 
 interface Props {
-  company: string;
-  logo: ImageMetadata;
-  role: string;
-  date: { start: string; end?: string } | string;
+  data:
+    | CollectionEntry<"professional">["data"]
+    | CollectionEntry<"education">["data"]
+    | CollectionEntry<"foss">["data"];
 }
 
-const { company, logo, role, date } = Astro.props;
+const {
+  data: { organization, role, start, end, image, description },
+} = Astro.props;
 ---
 
 <section>
   <header>
-    <Image src={logo} alt={company} />
+    <Image src={image} alt={organization} />
     <div>
-      <h3>{company}</h3>
+      <h3>{organization}</h3>
       <p>{role}</p>
       {
-        typeof date === "string" ? (
-          <p>{date}</p>
+        start === end ? (
+          <p>{start}</p>
         ) : (
           <p>
-            {date.start} &ndash; {date.end || "Present"}
+            {start} &ndash; {end ?? "Present"}
           </p>
         )
       }
@@ -32,7 +34,7 @@ const { company, logo, role, date } = Astro.props;
 
   <div></div>
   <div>
-    <slot />
+    {description.split("\n").map((line) => <p>{line}</p>)}
   </div>
 </section>
 

@@ -1,0 +1,13 @@
+- id: jj-contributor
+  organization: Jujutsu (jj)
+  role: Contributor
+  start: "Jan 2026"
+  image: ./img/jj.png
+  description: >
+
+- id: zed-contributor
+  organization: Zed (editor)
+  role: Contributor
+  start: "Mar 2025"
+  image: ./img/zed.png
+  description: >

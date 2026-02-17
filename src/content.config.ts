@@ -1,5 +1,5 @@
 import { defineCollection, z } from "astro:content";
-import { glob } from "astro/loaders";
+import { glob, file } from "astro/loaders";
 import { rssSchema } from "@astrojs/rss";
 
 const NoteSchema = rssSchema
@@ -19,4 +19,48 @@ const notes = defineCollection({
   schema: NoteSchema,
 });
 
-export const collections = { notes };
+const professional = defineCollection({
+  loader: file("./src/data/work/professional.yml"),
+  schema: ({ image }) =>
+    z.object({
+      organization: z.string().nonempty(),
+      role: z.string().nonempty(),
+      start: z.string().nonempty(),
+      end: z.string().nonempty().optional(),
+      image: image(),
+      description: z.string(),
+    }),
+});
+
+const education = defineCollection({
+  loader: file("./src/data/work/education.yml"),
+  schema: ({ image }) =>
+    z.object({
+      organization: z.string().nonempty(),
+      role: z.string().nonempty(),
+      start: z.string().nonempty(),
+      end: z.string().nonempty().optional(),
+      image: image(),
+      description: z.string(),
+    }),
+});
+
+const foss = defineCollection({
+  loader: file("./src/data/work/foss.yml"),
+  schema: ({ image }) =>
+    z.object({
+      organization: z.string().nonempty(),
+      role: z.string().nonempty(),
+      start: z.string().nonempty(),
+      end: z.string().nonempty().optional(),
+      image: image(),
+      description: z.string(),
+    }),
+});
+
+export const collections = {
+  notes,
+  professional,
+  education,
+  foss,
+};
