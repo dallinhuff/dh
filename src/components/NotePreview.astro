@@ -1,0 +1,51 @@
+---
+import type { Note } from "../content.config";
+
+interface Props {
+  note: Note & { id: string };
+}
+
+const { note } = Astro.props;
+
+const { title, pubDate, description } = note;
+const displayPubDate = note.pubDate.toISOString().split("T")[0];
+const href = `/notes/${note.id}`;
+---
+
+<article>
+  <header>
+    <a {href}><h2>{title}</h2></a>
+    <time datetime={pubDate.toISOString()}>{displayPubDate}</time>
+  </header>
+  <p>{description}</p>
+</article>
+
+<style>
+  article {
+    border-top: 3px solid var(--accent);
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      align-items: baseline;
+
+      h2 {
+        margin-bottom: 0;
+      }
+
+      time {
+        color: var(--accent);
+      }
+    }
+  }
+
+  @media (width <= 40rem) {
+    article {
+      header {
+        flex-direction: column;
+        row-gap: 0.5rem;
+      }
+    }
+  }
+</style>

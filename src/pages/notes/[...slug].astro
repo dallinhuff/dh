@@ -9,15 +9,17 @@ export async function getStaticPaths() {
 }
 
 const { post } = Astro.props;
-const pubDate = post.data.pubDate.toISOString().split("T")[0];
+const { title, pubDate, description } = post.data;
+const displayPubDate = post.data.pubDate.toISOString().split("T")[0];
+
 const { Content } = await render(post);
 ---
 
-<Layout title={post.data.title} description={post.data.description}>
+<Layout {title} {description}>
   <article>
     <header>
-      <h1>{post.data.title}</h1>
-      <time datetime={pubDate}>Published: {pubDate}</time>
+      <h1>{title}</h1>
+      <time datetime={pubDate.toISOString()}>Published: {displayPubDate}</time>
     </header>
 
     <Content />
