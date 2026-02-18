@@ -6,7 +6,8 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "test": "vitest"
   },
   "dependencies": {
     "@astrojs/rss": "4.0.14",
@@ -15,8 +16,11 @@
     "astro-expressive-code": "0.41.5"
   },
   "devDependencies": {
+    "@astrojs/ts-plugin": "1.10.6",
+    "cheerio": "1.2.0",
     "prettier": "3.7.4",
     "prettier-plugin-astro": "0.14.1",
+    "vitest": "4.0.18",
     "wrangler": "4.66.0"
   }
 }
