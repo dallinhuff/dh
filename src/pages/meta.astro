@@ -28,16 +28,24 @@ const sourceCodeLink = "https://github.com/dallinhuff/dh";
   </p>
 
   <section>
-    <h2>Credits</h2>
+    <h2>Credits & Acknowledgements</h2>
 
     <ul>
       <li>
         <a href="https://rkoziel.com" target="_blank">Radek Kozieł</a>
-        — for his terrific <code>terminal.css</code> stylesheet
+        for his terrific <code>terminal.css</code> stylesheet
       </li>
       <li>
         <a href="https://aaadaaam.com" target="_blank">Adam Stoddard</a>
-        — for inspiration from his clean site layout and navigation structure
+        for inspiration from his clean site layout and navigation structure
+      </li>
+      <li>
+        <a href="https://ysap.sh" target="_blank">Dave Eddy</a>
+        for his awesome <code>curl</code>-able site that I took inspiration from
+        for <code>dallinhuff.com/sh</code>.
+        <br />
+        Mine loses a few style points for not being in
+        <code>bash</code> and <code>make</code> like his, though.
       </li>
     </ul>
   </section>
@@ -62,5 +70,14 @@ const sourceCodeLink = "https://github.com/dallinhuff/dh";
   ul {
     margin-left: 0;
     list-style-type: none;
+
+    li {
+      text-indent: -4ch;
+      padding-left: 4ch;
+
+      a {
+        display: block;
+      }
+    }
   }
 </style>
