@@ -1,0 +1,21 @@
+ci:
+  collect:
+    autodiscoverUrlBlocklist:
+      - "/home/index.html"
+      - "/discord/index.html"
+      - "/github/index.html"
+      - "/instagram/index.html"
+      - "/linkedin/index.html"
+  assert:
+    preset: "lighthouse:recommended"
+    assertions:
+      network-dependency-tree-insight:
+        - "off"
+      render-blocking-insight:
+        - "error"
+        - maxLength: 2
+      render-blocking-resources:
+        - "error"
+        - maxLength: 2
+  upload:
+    target: "temporary-public-storage"

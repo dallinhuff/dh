@@ -1,4 +1,5 @@
 ---
+import "../styles/terminal.css";
 import PageHeader from "../components/PageHeader.astro";
 import PageFooter from "../components/PageFooter.astro";
 
@@ -20,7 +21,6 @@ const canonicalUrl = new URL(Astro.url.pathname, import.meta.env.SITE).href;
     <link rel="sitemap" href="/sitemap-index.xml" />
     <link rel="alternate" type="application/rss+xml" href="/rss.xml" />
     <link rel="icon" type="image/png" href="/favicon.png" />
-    <link rel="stylesheet" href="/terminal.css" />
     <link
       rel="preload"
       href="/fonts/JetBrainsMono.woff2"
