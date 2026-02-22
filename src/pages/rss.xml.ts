@@ -21,5 +21,6 @@ export async function GET(context: APIContext) {
       link: `/notes/${note.id}`,
     })),
     customData: `<language>en-us</language>`,
+    stylesheet: "/rss.xsl",
   });
 }
