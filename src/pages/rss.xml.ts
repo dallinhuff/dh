@@ -1,6 +1,6 @@
+import { getCollection } from "astro:content";
 import rss from "@astrojs/rss";
 import type { APIContext } from "astro";
-import { getCollection } from "astro:content";
 
 const title = "Dallin Huff's Notes";
 const description =
@@ -14,7 +14,7 @@ export async function GET(context: APIContext) {
   return rss({
     title,
     description,
-    site: context.site!,
+    site: context.site ?? "",
     items: notes.map((note) => ({
       ...note.data,
       author: "Dallin Huff",

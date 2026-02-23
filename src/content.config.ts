@@ -1,6 +1,6 @@
 import { defineCollection, z } from "astro:content";
-import { glob, file } from "astro/loaders";
 import { rssSchema } from "@astrojs/rss";
+import { file, glob } from "astro/loaders";
 
 const NoteSchema = rssSchema
   .required({

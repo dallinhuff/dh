@@ -49,7 +49,7 @@ const body = `
       `${LINK("$ curl")} -L ${url}${spacing}${HINT(hintTxt)}`,
   );
 
-const content = banner + "\n" + body;
+const content = `${banner}\n${body}`;
 
 export const GET: APIRoute = () => {
   return new Response(content, {

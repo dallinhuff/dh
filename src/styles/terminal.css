@@ -198,8 +198,8 @@ input[type="radio"] {
 
 input[type="radio"] {
   display: inline-block;
-  width: 10px !important;
-  height: 10px !important;
+  width: 10px;
+  height: 10px;
   border-radius: 20px;
 }
 
@@ -262,7 +262,7 @@ kbd {
     Monaco,
     Consolas,
     Ubuntu Mono,
-    monospace !important;
+    monospace;
   font-feature-settings: normal;
   background: color-mix(in srgb, var(--foreground) 5%, transparent);
   color: color-mix(in srgb, var(--foreground) 5%, var(--accent));
@@ -291,17 +291,17 @@ code code {
 
 pre {
   tab-size: 4;
-  background: color-mix(in srgb, var(--foreground) 5%, transparent) !important;
+  background: color-mix(in srgb, var(--foreground) 5%, transparent);
   color: color-mix(in srgb, var(--foreground) 5%, var(--accent));
   padding: 20px 10px;
-  font-size: 0.95em !important;
+  font-size: 0.95em;
   overflow: auto;
   border-radius: var(--radius);
   border: 1px solid color-mix(in srgb, var(--foreground) 25%, transparent);
 }
 
 pre code {
-  background: none !important;
+  background: none;
   margin: 0;
   padding: 0;
   font-size: inherit;

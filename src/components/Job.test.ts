@@ -1,10 +1,9 @@
-import { experimental_AstroContainer as AstroContainer } from "astro/container";
 import type { CollectionEntry } from "astro:content";
-import { load, type CheerioAPI } from "cheerio";
-import { beforeAll, expect, describe, it } from "vitest";
-
-import Job from "./Job.astro";
+import { experimental_AstroContainer as AstroContainer } from "astro/container";
+import { type CheerioAPI, load } from "cheerio";
+import { beforeAll, describe, expect, it } from "vitest";
 import img from "../data/work/img/jj.png";
+import Job from "./Job.astro";
 
 async function render(job: CollectionEntry<"professional">["data"]) {
   const container = await AstroContainer.create();
