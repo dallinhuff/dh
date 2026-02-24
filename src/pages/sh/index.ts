@@ -1,5 +1,7 @@
 import type { APIRoute } from "astro";
-import chalk from "chalk";
+import { Chalk } from "chalk";
+
+const chalk = new Chalk({ level: 1 });
 
 const HEADING = chalk.yellowBright.bold;
 const LINK = chalk.cyanBright;
