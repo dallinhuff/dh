@@ -10,60 +10,58 @@ const canonicalUrl = new URL(Astro.url.pathname, import.meta.env.SITE).href;
 <!doctype html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
 
-    <meta name="application-name" content="Dallin Huff" />
+    <meta name="application-name" content="Dallin Huff">
     <title>{title}</title>
-    <meta name="author" content="Dallin Huff" />
-    <meta name="description" content={description} />
+    <meta name="author" content="Dallin Huff">
+    <meta name="description" content={description}>
 
-    <link rel="sitemap" href="/sitemap-index.xml" />
-    <link rel="alternate" type="application/rss+xml" href="/rss.xml" />
-    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="sitemap" href="/sitemap-index.xml">
+    <link rel="alternate" type="application/rss+xml" href="/rss.xml">
+    <link rel="icon" type="image/png" href="/favicon.png">
     <link
       rel="preload"
       href="/fonts/JetBrainsMono.woff2"
       as="font"
       type="font/woff2"
       crossorigin
-    />
-    <meta name="generator" content={Astro.generator} />
+    >
+    <meta name="generator" content={Astro.generator}>
 
-    <meta property="og:locale" content="en" />
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content={title} />
-    <meta property="og:description" content={description} />
-    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:locale" content="en">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content={title}>
+    <meta property="og:description" content={description}>
+    <meta property="og:url" content={canonicalUrl}>
   </head>
 
   <body>
     <PageHeader />
-    <main>
-      <slot />
-    </main>
+    <main><slot /></main>
     <PageFooter />
   </body>
 </html>
 
 <style>
-  body {
-    margin: 0 auto;
-    padding: 1rem;
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    max-width: 84ch;
-    min-height: 100vh;
+body {
+  margin: 0 auto;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 84ch;
+  min-height: 100vh;
 
-    & > * {
-      flex-grow: 0;
-      flex-shrink: 0;
-    }
-
-    & > main {
-      flex-grow: 1;
-      margin-bottom: 2rem;
-    }
+  & > * {
+    flex-grow: 0;
+    flex-shrink: 0;
   }
+
+  & > main {
+    flex-grow: 1;
+    margin-bottom: 2rem;
+  }
+}
 </style>

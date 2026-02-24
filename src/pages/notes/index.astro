@@ -27,15 +27,14 @@ const notes = (await getCollection("notes"))
     <p>
       I write occasionally about what I'm working on or what I'm seeing around
       me. You can check back here for updates or subscribe via
-      <a href="/rss.xml">RSS</a> if that's your kind of thing.
+      <a href="/rss.xml">RSS</a>
+      if that's your kind of thing.
     </p>
   </header>
 
-  {
-    notes.length === 0 ? (
+  {notes.length === 0 ? (
       <p>No posts yet.</p>
     ) : (
       notes.map(({ id, data }) => <NotePreview note={{ ...data, id }} />)
-    )
-  }
+    )}
 </Layout>

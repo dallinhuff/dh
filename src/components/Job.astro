@@ -20,57 +20,53 @@ const {
     <div>
       <h3>{organization}</h3>
       <p>{role}</p>
-      {
-        start === end ? (
+      {start === end ? (
           <p>{start}</p>
         ) : (
           <p>
             {start} &ndash; {end ?? "Present"}
           </p>
-        )
-      }
+        )}
     </div>
   </header>
 
   <div></div>
-  <div>
-    {description.split("\n").map((line) => <p>{line}</p>)}
-  </div>
+  <div>{description.split("\n").map((line) => <p>{line}</p>)}</div>
 </section>
 
 <style>
-  section {
-    display: grid;
-    grid-template-columns: 100px auto;
-    gap: 0 2ch;
+section {
+  display: grid;
+  grid-template-columns: 100px auto;
+  gap: 0 2ch;
 
-    & > header {
-      display: contents;
+  & > div {
+    margin-top: -25px;
+  }
 
-      & img {
-        border-width: 0;
-        border-radius: 50%;
-        padding: 0;
-        width: 90px;
-        height: 90px;
-      }
+  & > header {
+    display: contents;
 
-      & > div {
-        padding-top: 8px;
-
-        & > h3 {
-          color: var(--accent);
-          margin-bottom: 0.25rem;
-        }
-
-        & > p {
-          margin: 0;
-        }
-      }
+    & img {
+      border-width: 0;
+      border-radius: 50%;
+      padding: 0;
+      width: 90px;
+      height: 90px;
     }
 
     & > div {
-      margin-top: -25px;
+      padding-top: 8px;
+
+      & > h3 {
+        color: var(--accent);
+        margin-bottom: 0.25rem;
+      }
+
+      & > p {
+        margin: 0;
+      }
     }
   }
+}
 </style>
