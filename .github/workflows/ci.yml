@@ -5,8 +5,61 @@ on:
   pull_request:
 
 jobs:
-  build:
-    name: Build
+
+  # Rust-based utils jobs
+
+  build-utils:
+    name: Build (utils)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Rust
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          toolchain: stable
+      - name: Cache dependencies
+        uses: Swatinem/rust-cache@v2
+      - run: cargo build --release --locked --verbose
+
+
+  test-utils:
+    name: Test (utils)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Rust
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          toolchain: stable
+      - name: Cache dependencies
+        uses: Swatinem/rust-cache@v2
+      - run: cargo test --release --locked --verbose
+
+
+  lint-utils:
+    name: Lint & Format (utils)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Rust
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          components: clippy, rustfmt
+          toolchain: nightly
+      - name: Cache dependencies
+        uses: Swatinem/rust-cache@v2
+      - name: Check formatting
+        run: cargo +nightly fmt --check
+      - name: Lint with clippy
+        run: cargo clippy -- -D warnings
+
+  # Astro/npm site jobs
+
+  build-site:
+    name: Build (site)
     defaults:
       run:
         working-directory: ./site
@@ -24,8 +77,9 @@ jobs:
         run: npm ci
       - name: Build with Astro
         run: npm run build
-  lint:
-    name: Lint & Format
+
+  lint-site:
+    name: Lint & Format (site)
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -43,8 +97,9 @@ jobs:
         run: npm ci
       - name: Run `biome ci`
         run: npm run biome ci
-  test:
-    name: Test
+
+  test-site:
+    name: Test (site)
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -62,6 +117,7 @@ jobs:
         run: npm ci
       - name: Test
         run: npm test run
+
   lhci:
     name: Lighthouse
     runs-on: ubuntu-latest
