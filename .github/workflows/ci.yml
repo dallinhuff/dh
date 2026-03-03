@@ -67,6 +67,13 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+      - name: Setup Rust
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          toolchain: stable
+      - name: Install dh-sh
+        run: cargo install --path utils/dh-sh
+        working-directory: .
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
