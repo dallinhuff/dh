@@ -10,94 +10,42 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: dtolnay/rust-toolchain@stable
-        with:
-          toolchain: stable
-      - uses: Swatinem/rust-cache@v2
-      - uses: actions/setup-node@v4
-        with:
-          node-version: "20"
-          cache: npm
-          cache-dependency-path: site/package-lock.json
-      - uses: extractions/setup-just@v3
-        with:
-          just-version: "1.46.0"
-      - run: npm --prefix=site ci
+      - uses: ./.github/actions/setup
       - run: just build
 
   test:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: dtolnay/rust-toolchain@stable
-        with:
-          toolchain: stable
-      - uses: Swatinem/rust-cache@v2
-      - uses: actions/setup-node@v4
-        with:
-          node-version: "20"
-          cache: npm
-          cache-dependency-path: site/package-lock.json
-      - uses: extractions/setup-just@v3
-        with:
-          just-version: "1.46.0"
-      - run: npm --prefix=site ci
+      - uses: ./.github/actions/setup
       - run: just test
 
   fmt:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: dtolnay/rust-toolchain@stable
+      - uses: ./.github/actions/setup
         with:
-          components: rustfmt
-          toolchain: nightly
-      - uses: Swatinem/rust-cache@v2
-      - uses: actions/setup-node@v4
-        with:
-          node-version: "20"
-          cache: npm
-          cache-dependency-path: site/package-lock.json
-      - uses: extractions/setup-just@v3
-        with:
-          just-version: "1.46.0"
-      - run: npm --prefix=site ci
+          rust-toolchain: nightly
+          rust-components: rustfmt
       - run: just fmt
 
   lint:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: dtolnay/rust-toolchain@stable
-        with:
-          toolchain: stable
-      - uses: Swatinem/rust-cache@v2
-      - uses: actions/setup-node@v4
-        with:
-          node-version: "20"
-          cache: npm
-          cache-dependency-path: site/package-lock.json
-      - uses: extractions/setup-just@v3
-        with:
-          just-version: "1.46.0"
-      - run: npm --prefix=site ci
+      - uses: ./.github/actions/setup
       - run: just lint
 
   lighthouse:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: ./site
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: "20"
-          cache: npm
-          cache-dependency-path: site/package-lock.json
-      - run: npm ci
-      - run: npm run build
+      - uses: ./.github/actions/setup
       - run: npm i -g @lhci/cli@0.15.1
+      - run: npm run build
+        working-directory: ./site
       - run: lhci autorun
+        working-directory: ./site
         env:
           LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
