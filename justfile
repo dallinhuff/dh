@@ -7,6 +7,7 @@ _default:
 build:
 	cargo build --release
 	{{site}} build
+	cargo run -p dh-sh -- generate --dir sh/out
 
 # Check (or fix) formatting for whole project
 [arg('write', short='w', long='write', value='true')]
