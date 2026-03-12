@@ -67,24 +67,25 @@ fn generate(args: GenerateArgs) -> std::io::Result<()> {
     let dir = args.dir.unwrap_or_else(|| PathBuf::from("./out"));
     std::fs::create_dir_all(&dir)?;
 
-    const ROUTES: &[Route] = &[Route::Home];
+    // Use `.html` extension for files so they work out of the box with
+    // static file servers and CDNs like Cloudflare.
+    const ROUTES: &[(Route, &str)] = &[(Route::Home, "index.html")];
 
-    for route in ROUTES {
-        let file_name = match route {
-            Route::Home => dir.join(Path::new("index")),
-        };
-        let buf = BufWriter::new(File::create(file_name)?);
+    // Since we're using the html file extension even though these aren't
+    // html documents, we need to make sure these are served as text/plain.
+    // Cloudflare reads the _headers file.
+    let mut w = BufWriter::new(File::create(dir.join(Path::new("_headers")))?);
+    write!(w, "/*\n  Content-Type: text/plain\n")?;
+
+    for (route, file_name) in ROUTES {
         render(
             RenderArgs {
                 route: *route,
                 plain: args.plain,
             },
-            buf,
+            BufWriter::new(File::create(dir.join(Path::new(file_name)))?),
         )?;
     }
-
-    let mut w = BufWriter::new(File::create(dir.join(Path::new("_headers")))?);
-    write!(w, "/*\n  Content-Type: text/plain\n")?;
 
     Ok(())
 }
