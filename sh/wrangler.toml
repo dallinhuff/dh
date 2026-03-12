@@ -1,0 +1,5 @@
+name = "sh"
+compatibility_date = "2026-01-17"
+
+[assets]
+directory = "./out"
