@@ -44,7 +44,7 @@ pub fn page() -> AnyElement<'static> {
                 View() {
                     MixedText(contents: vec![
                         MixedTextContent::new("$ curl").color(Color::Cyan),
-                        MixedTextContent::new(" -L dallinhuff.com/sh     "),
+                        MixedTextContent::new(" -L sh.dallinhuff.com     "),
                         MixedTextContent::new("Get this page").color(Color::Magenta).italic(),
                     ])
                 }
