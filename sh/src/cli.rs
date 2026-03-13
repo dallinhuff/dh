@@ -52,6 +52,7 @@ struct RenderArgs {
 #[derive(Debug, Clone, Copy, Subcommand)]
 enum Route {
     Home,
+    _404,
 }
 
 pub fn run() -> std::io::Result<()> {
@@ -69,7 +70,7 @@ fn generate(args: GenerateArgs) -> std::io::Result<()> {
 
     // Use `.html` extension for files so they work out of the box with
     // static file servers and CDNs like Cloudflare.
-    const ROUTES: &[(Route, &str)] = &[(Route::Home, "index.html")];
+    const ROUTES: &[(Route, &str)] = &[(Route::Home, "index.html"), (Route::_404, "404.html")];
 
     // Since we're using the html file extension even though these aren't
     // html documents, we need to make sure these are served as text/plain.
@@ -93,6 +94,7 @@ fn generate(args: GenerateArgs) -> std::io::Result<()> {
 fn render<W: Write>(args: RenderArgs, writer: W) -> std::io::Result<()> {
     let mut page: AnyElement<'_> = match args.route {
         Route::Home => routes::home::page(),
+        Route::_404 => routes::_404::page(),
     };
 
     if args.plain {
