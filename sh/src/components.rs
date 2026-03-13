@@ -126,3 +126,12 @@ pub fn DictBlock<'a>(props: &DictBlockProps<'a>) -> impl Into<AnyElement<'static
         }
     }
 }
+
+#[component]
+pub fn BrowserHelp() -> impl Into<AnyElement<'static>> {
+    element! {
+        View() {
+            Text(content: "\x1b[8m    Does this page look weird in your browser? Try curl-ing it instead.    \x1b[0m")
+        }
+    }
+}
