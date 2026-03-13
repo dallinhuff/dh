@@ -1,5 +1,9 @@
 name = "sh"
 compatibility_date = "2026-01-17"
 
+[build]
+command = "cargo run --release -- generate"
+watch_dir = "src"
+
 [assets]
 directory = "./out"
