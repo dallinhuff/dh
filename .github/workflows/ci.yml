@@ -22,6 +22,10 @@ jobs:
       - uses: actions/checkout@v6
       - uses: ./.github/actions/setup
       - run: just build
+        env:
+          SECURE_TOKEN_API_KEY: ${{ secrets.SECURE_TOKEN_API_KEY }}
+          SECURE_TOKEN_REFRESH_TOKEN: ${{ secrets.SECURE_TOKEN_REFRESH_TOKEN }}
+          PAGE_SIZE_URL: ${{ secrets.PAGE_SIZE_URL }}
       - name: Upload worker version
         id: upload
         uses: cloudflare/wrangler-action@v3
