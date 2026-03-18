@@ -1,0 +1,53 @@
+---
+import { getWebCarbonReport } from "../scripts/web-carbon";
+
+const statsUrl = "https://www.websitecarbon.com/website/dallinhuff-com/";
+const report = await getWebCarbonReport();
+
+const grade = report.rating;
+const carbonAmount = report.gco2e.toFixed(4);
+const percentile = (report.cleanerThan * 100).toFixed(0);
+const formattedDate = new Date().toISOString();
+---
+
+<dl>
+  <dt>Grade</dt>
+  <dd data-grade={grade}>{grade}</dd>
+
+  <dt>CO<sub>2</sub> / view</dt>
+  <dd data-amount={carbonAmount}>&lt;= {carbonAmount} g</dd>
+
+  <dt>Green Percentile</dt>
+  <dd data-percentile={percentile}>{percentile}</dd>
+
+  <dt>Last Checked</dt>
+  <dd><time datetime={formattedDate}>{formattedDate}</time></dd>
+</dl>
+
+<p>
+  <a href={statsUrl}>Full report</a>
+  supplied by
+  <a href="https://www.websitecarbon.com/">websitecarbon.com</a>
+</p>
+
+<style>
+dl {
+  --border: 1px solid var(--accent);
+  display: grid;
+  grid-template-columns: 24ch 1fr;
+  border-top: var(--border);
+  border-left: var(--border);
+
+  dt {
+    font-weight: bold;
+    text-align: right;
+  }
+
+  dt,
+  dd {
+    padding: 0.5rem 1rem;
+    border-right: var(--border);
+    border-bottom: var(--border);
+  }
+}
+</style>

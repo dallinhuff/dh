@@ -1,4 +1,5 @@
 ---
+import CO2Badge from "../components/CO2Badge.astro";
 import Layout from "../layouts/Layout.astro";
 
 const title = "Meta";
@@ -27,6 +28,11 @@ const sourceCodeLink = "https://github.com/dallinhuff/dh";
     fast-loading pages with no JavaScript, no "utility class" clutter in the
     markup, and no minified/uglified obfuscation of my source files.
   </p>
+
+  <section>
+    <h2>Carbon Footprint</h2>
+    <CO2Badge />
+  </section>
 
   <section>
     <h2>Credits & Acknowledgements</h2>
