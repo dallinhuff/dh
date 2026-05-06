@@ -1,0 +1,6 @@
+/.well-known/openpgpkey/dallinhuff.com/policy
+    Access-Control-Allow-Origin: *
+
+/.well-known/openpgpkey/dallinhuff.com/hu/*
+    Access-Control-Allow-Origin: *
+    Content-Type: application/octet-stream

@@ -1,0 +1,8 @@
+name = "wkd"
+compatibility_date = "2026-05-04"
+
+[assets]
+directory = "./public"
+
+[observability]
+enabled = true

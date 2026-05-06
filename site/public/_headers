@@ -1,9 +1,2 @@
-/.well-known/openpgpkey/policy
-  Access-Control-Allow-Origin: *
-
-/.well-known/openpgpkey/hu/*
-  Content-Type: application/octet-stream
-  Access-Control-Allow-Origin: *
-
 /pgp.asc
   Content-Disposition: attachment; filename="ACE0BD18141B412230D5E092A3FC997AF7DEB253.asc";
