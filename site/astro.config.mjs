@@ -1,5 +1,6 @@
 // @ts-check
 
+import cloudflare from "@astrojs/cloudflare";
 import sitemap from "@astrojs/sitemap";
 import { defineConfig } from "astro/config";
 import expressiveCode from "astro-expressive-code";
@@ -23,4 +24,16 @@ export default defineConfig({
     }),
     sitemap(),
   ],
+
+  // Cloudflare adapter really doesn't play nice with vitest.
+  // Since the only tests we have are for static/prerendered components,
+  // just use the default/SSG adapter for unit tests.
+  adapter: process.env.VITEST
+    ? undefined
+    : cloudflare({
+        imageService: {
+          build: "compile",
+          runtime: "cloudflare-binding",
+        },
+      }),
 });

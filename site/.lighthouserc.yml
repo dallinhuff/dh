@@ -1,5 +1,6 @@
 ci:
   collect:
+    staticDistDir: "./dist/client"
     autodiscoverUrlBlocklist:
       - "/home/index.html"
       - "/discord/index.html"

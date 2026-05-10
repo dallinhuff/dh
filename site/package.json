@@ -8,13 +8,16 @@
     "preview": "astro preview",
     "astro": "astro",
     "biome": "biome",
-    "test": "vitest"
+    "test": "vitest",
+    "generate-types": "wrangler types"
   },
   "dependencies": {
+    "@astrojs/cloudflare": "13.5.0",
     "@astrojs/rss": "4.0.18",
     "@astrojs/sitemap": "3.7.1",
-    "astro": "6.2.2",
-    "astro-expressive-code": "0.41.7"
+    "astro": "6.3.0",
+    "astro-expressive-code": "0.41.7",
+    "wrangler": "4.90.0"
   },
   "devDependencies": {
     "@astrojs/ts-plugin": "1.10.7",
