@@ -1,4 +1,5 @@
 - id: byu-bs-cs
+  kind: "degree"
   organization: Brigham Young University
   role: B.S. Computer Science
   start: "Sep 2020"
@@ -8,6 +9,7 @@
     Cum Laude - 3.96 GPA
 
 - id: aws-cloudquest-cloud-practitioner
+  kind: "certification"
   organization: Amazon Web Services
   role: CloudQuest Cloud Practitioner
   start: "Sep 2025"
@@ -16,6 +18,7 @@
   description: >
 
 - id: rock-jvm-advanced-scala-fp
+  kind: "certification"
   organization: Rock the JVM
   role: "Advanced Scala 3 & Functional Programming"
   start: "Sep 2023"

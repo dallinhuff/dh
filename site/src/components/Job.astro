@@ -12,6 +12,13 @@ interface Props {
 const {
   data: { organization, role, start, end, image, description },
 } = Astro.props;
+
+function monthYear(s: string): string {
+  return new Date(`${s}-01`).toLocaleString("en-US", {
+    month: "short",
+    year: "numeric",
+  });
+}
 ---
 
 <section>
@@ -21,10 +28,10 @@ const {
       <h3>{organization}</h3>
       <p>{role}</p>
       {start === end ? (
-          <p>{start}</p>
+          <p>{monthYear(start)}</p>
         ) : (
           <p>
-            {start} &ndash; {end ?? "Present"}
+            {monthYear(start)} &ndash; {end ? monthYear(end) : "Present"}
           </p>
         )}
     </div>

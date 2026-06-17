@@ -42,6 +42,7 @@ const education = defineCollection({
       start: z.string().nonempty(),
       end: z.string().nonempty().optional(),
       image: image(),
+      kind: z.enum(["degree", "certification"]),
       description: z.string(),
     }),
 });

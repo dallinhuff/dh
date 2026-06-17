@@ -1,5 +1,5 @@
 ---
-import { getCollection } from "astro:content";
+import { type CollectionEntry, getCollection } from "astro:content";
 import Job from "../components/Job.astro";
 import Layout from "../layouts/Layout.astro";
 
@@ -8,9 +8,47 @@ const description =
   "A high-level overview of the problems I’ve worked on professionally or as a FOSS contributor. " +
   "Not exhaustive, just the work that’s interesting enough to explain in more detail.";
 
-const professional = await getCollection("professional");
-const education = await getCollection("education");
-const foss = await getCollection("foss");
+function byRecency(
+  a: CollectionEntry<"professional" | "education" | "foss">,
+  b: CollectionEntry<"professional" | "education" | "foss">,
+): number {
+  return (
+    new Date(`${b.data.start}-01`).valueOf() -
+    new Date(`${a.data.start}-01`).valueOf()
+  );
+}
+
+function byKind(
+  a: CollectionEntry<"education">,
+  b: CollectionEntry<"education">,
+): number {
+  switch (a.data.kind) {
+    case "degree":
+      switch (b.data.kind) {
+        case "degree":
+          return 0;
+        case "certification":
+          return -1;
+        default:
+          return 0;
+      }
+    case "certification":
+      switch (b.data.kind) {
+        case "degree":
+          return 1;
+        case "certification":
+          return 0;
+        default:
+          return 0;
+      }
+  }
+}
+
+const professional = (await getCollection("professional")).sort(byRecency);
+const education = (await getCollection("education")).sort(
+  (a, b) => byKind(a, b) || byRecency(a, b),
+);
+const foss = (await getCollection("foss")).sort(byRecency);
 ---
 
 <Layout {title} {description}>

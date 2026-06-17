@@ -1,7 +1,7 @@
 - id: fidelity-associate-swe
   organization: Fidelity Investments
   role: Associate Software Engineer
-  start: "Jun 2025"
+  start: "2025-06"
   image: ./img/fidelity.jpg
   description: >
     I currently work as a software engineer for Fidelity Brokerage's Digital
@@ -16,8 +16,8 @@
 - id: opiniion-integrations-eng
   organization: Opiniion, Inc.
   role: Integrations Engineer
-  start: "Aug 2024"
-  end: "Jun 2025"
+  start: "2024-08"
+  end: "2025-06"
   image: ./img/opiniion.jpg
   description: >
     Opiniion is a platform for property management companies to collect
@@ -42,8 +42,8 @@
 - id: fidelity-swe-intern
   organization: Fidelity Investments
   role: Software Engineer Intern
-  start: "Jun 2024"
-  end: "Aug 2024"
+  start: "2024-06"
+  end: "2024-08"
   image: ./img/fidelity.jpg
   description: >
     I interned at Fidelity in the summer of 2024 as a software engineer for
@@ -60,8 +60,8 @@
 - id: byu-ls-web-dev
   organization: BYU Learning Suite
   role: Web Developer
-  start: "May 2022"
-  end: "May 2024"
+  start: "2022-05"
+  end: "2024-05"
   image: ./img/ls.jpg
   description: >
     Learning Suite is a proprietary learning management system (LMS) built
