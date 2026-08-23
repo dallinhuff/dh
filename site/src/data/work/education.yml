@@ -1,3 +1,12 @@
+- id: gatech-ms-cs
+  kind: "degree"
+  organization: Georgia Institute of Technology
+  role: M.S. Computer Science
+  start: "Aug 2026"
+  image: ./img/gatech.png
+  description: >
+    Specialization in Computing Systems
+
 - id: byu-bs-cs
   kind: "degree"
   organization: Brigham Young University
