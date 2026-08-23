@@ -1,8 +1,14 @@
-## dh
+# dh/site
 
-My personal website, deployed at `https://www.dallinhuff.com`
+My personal website, deployed at <https://www.dallinhuff.com>
 
-## 🧞 Commands
+
+## Prerequisites
+
+- NPM (<https://docs.npmjs.com/downloading-and-installing-node-js-and-npm>)
+
+
+## Commands
 
 | Command                   | Action                                           |
 | :------------------------ | :----------------------------------------------- |
@@ -12,6 +18,7 @@ My personal website, deployed at `https://www.dallinhuff.com`
 | `npm run preview`         | Preview your build locally, before deploying     |
 | `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
 | `npm run astro -- --help` | Get help using the Astro CLI                     |
+
 
 ## License
 
