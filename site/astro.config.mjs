@@ -17,6 +17,8 @@ export default defineConfig({
     "/discord": "https://discord.gg/3k9YS8qm",
   },
 
+  compressHTML: true,
+
   integrations: [
     expressiveCode({
       themes: ["kanagawa-wave"],
